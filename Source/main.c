@@ -11,39 +11,31 @@
 /* ************************************************************************** */
 #include <fract_ol.h>
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+t_mlx_data	*win_del(t_mlx_data *mlx)
 {
-	char	*dst;
-
-	dst = data->addr + (y * data->ll + x * (data->bpp / 8));
-       *(unsigned int*)dst = color;	
+	if (mlx->win)
+		mlx_destroy_window(mlx->ptr, mlx->win);
+	return (NULL);
 }
 
-int	close(int keycode, d_mlx *var)
+t_mlx_data	*init()
 {
-	mlx_destroy_window(var->mlx, var->win);
-	return (0);
+	t_mlx_data	*mlx;
+
+	mlx = malloc(sizeof(t_mlx_data));
+	if (!mlx)
+		return (NULL);
+	mlx->ptr = mlx_init();
+	mlx->win = mlx_new_window(mlx->ptr, 960, 540, "fract-ol");
+	return (mlx);
 }
 
 int	main(void)
 {
-	d_mlx	*win;
-	t_data	*img;
-	int	i;
+	t_mlx_data	*mlx;
 
-	i = 0;
-	win = malloc(sizeof(d_mlx));
-	img = malloc(sizeof(t_data));
-	win->mlx = mlx_init();
-	win->win = mlx_new_window(win->mlx, 500, 500, "win");
-	img->img = mlx_new_image(win->mlx, 300, 300);
-	img->addr = mlx_get_data_addr(img->img, &img->bpp, &img->ll, &img->end);
-	while (i++ < 300)
-		my_mlx_pixel_put(img, 310, i, 0x00FF0000);
-	mlx_put_image_to_window(win->mlx, win->win, img->img, 0, 0);
-	mlx_hook(win->win, 2, 1L<<0, close, &win);
-	mlx_loop(win->mlx);
-	free(win);
-	free(img);
+	mlx = init();
+	mlx_loop(mlx->ptr);
+	free(mlx);
 	return (0);
 }
