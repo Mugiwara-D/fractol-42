@@ -1,23 +1,40 @@
 #ifndef FRACT_OL_H
 # define FRACT_OL_H
 
+# define LF 1280
+# define HF 720
+
 # include <../minilibx-linux/mlx.h>
 # include <stdlib.h>
 
-typedef	struct	s_mlx
+typedef	struct	mlx_data
 {
-	void	*mlx;
+	void	*ptr;
 	void	*win;
 
-}	d_mlx;
+}	s_mlx;
 
-typedef	struct	s_data
+typedef	struct t_complex
+{
+	double	rel;
+	double	ima;
+}	s_complex;
+
+typedef struct	fractal_data
+{
+	char	*name;
+
+}	s_fractal;
+
+typedef	struct	img_data
 {
 	void	*img;
-	char	*addr;
+	char	*ptr;
 	int	bpp;
-	int	ll;
+	int	lil;
 	int	end;
-}	t_data;
+}	s_img;
+
+void    my_pixel_put(s_img *data, int x, int y, int color);
 
 #endif

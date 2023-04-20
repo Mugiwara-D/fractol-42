@@ -11,31 +11,17 @@
 /* ************************************************************************** */
 #include <fract_ol.h>
 
-t_mlx_data	*win_del(t_mlx_data *mlx)
-{
-	if (mlx->win)
-		mlx_destroy_window(mlx->ptr, mlx->win);
-	return (NULL);
-}
-
-t_mlx_data	*init()
-{
-	t_mlx_data	*mlx;
-
-	mlx = malloc(sizeof(t_mlx_data));
-	if (!mlx)
-		return (NULL);
-	mlx->ptr = mlx_init();
-	mlx->win = mlx_new_window(mlx->ptr, 960, 540, "fract-ol");
-	return (mlx);
-}
-
 int	main(void)
 {
-	t_mlx_data	*mlx;
+	s_mlx	*mlx;
+	s_img	*img;
 
 	mlx = init();
+	img = init_img(mlx);
+	mlx_hook(mlx->win, 2, 1L<<0, key_hook, &mlx);
+	mlx_put_image_to_window(mlx->ptr, mlx->win, img->img, 0, 0);
 	mlx_loop(mlx->ptr);
 	free(mlx);
+	free(img);
 	return (0);
 }

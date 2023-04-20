@@ -1,10 +1,10 @@
 #include <fract_ol.h>
 
-void	my_pixel_put(t_img_data *data, int x, int y, int color)
+void	my_pixel_put(s_img *data, int x, int y, int color)
 {
 	char	*dst;
 
-	dst = data->addr + (y * data->ll + x * (data->bpp / 8));
+	dst = data->ptr + (y * data->lil + x * (data->bpp / 8));
        *(unsigned int*)dst = color;	
 }
 
