@@ -26,6 +26,13 @@ typedef struct	fractal_data
 
 }	s_fractal;
 
+typedef struct	pixel_pos
+{
+	int	x;
+	int	y;
+	int	color;
+}	s_pixel;
+
 typedef	struct	img_data
 {
 	void	*img;
@@ -35,6 +42,10 @@ typedef	struct	img_data
 	int	end;
 }	s_img;
 
+s_img	*init_img(s_mlx *mlx);
+void	draw(s_img *f);
+s_mlx	*init();
+int	key_hook(int keycode, s_mlx *mlx);
 void    my_pixel_put(s_img *data, int x, int y, int color);
 
 #endif

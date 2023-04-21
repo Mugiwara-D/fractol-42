@@ -1,4 +1,4 @@
-#include <fract_ol>
+#include <fract_ol.h>
 
 s_mlx	*init()
 {

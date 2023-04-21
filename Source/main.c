@@ -18,6 +18,7 @@ int	main(void)
 
 	mlx = init();
 	img = init_img(mlx);
+	draw(img);
 	mlx_hook(mlx->win, 2, 1L<<0, key_hook, &mlx);
 	mlx_put_image_to_window(mlx->ptr, mlx->win, img->img, 0, 0);
 	mlx_loop(mlx->ptr);
