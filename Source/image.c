@@ -18,7 +18,7 @@ void	my_pixel_put(s_img *f, int x, int y, int color)
        *(unsigned int*)dst = color;	
 }
 
-void	draw(s_img *f)
+void	draw(s_img *f, s_fractal *d)
 {
 	int	h;
 	int	l;

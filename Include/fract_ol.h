@@ -20,12 +20,6 @@ typedef	struct t_complex
 	double	ima;
 }	s_complex;
 
-typedef struct	fractal_data
-{
-	char	*name;
-
-}	s_fractal;
-
 typedef struct	pixel_pos
 {
 	int	x;
@@ -42,6 +36,13 @@ typedef	struct	img_data
 	int	end;
 }	s_img;
 
+typedef struct	fractal_data
+{
+	char *name;
+	
+}	s_fractal;
+
+typedef s_pixel	(*k7m)(s_fractal);
 s_img	*init_img(s_mlx *mlx);
 void	draw(s_img *f);
 s_mlx	*init();
