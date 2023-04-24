@@ -20,12 +20,12 @@ typedef	struct t_complex
 	double	ima;
 }	s_complex;
 
-typedef struct	pixel_pos
+typedef struct	pixel_data
 {
-	int	x;
-	int	y;
-	int	color;
-}	s_pixel;
+	int32_t	x;
+	int32_t	y;
+	int32_t color;
+}	s_pxl;
 
 typedef	struct	img_data
 {
@@ -42,9 +42,8 @@ typedef struct	fractal_data
 	
 }	s_fractal;
 
-typedef s_pixel	(*k7m)(s_fractal);
 s_img	*init_img(s_mlx *mlx);
-void	draw(s_img *f);
+void	draw(s_img *frame, s_pxl *p);
 s_mlx	*init();
 int	key_hook(int keycode, s_mlx *mlx);
 void    my_pixel_put(s_img *data, int x, int y, int color);

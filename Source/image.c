@@ -18,18 +18,26 @@ void	my_pixel_put(s_img *f, int x, int y, int color)
        *(unsigned int*)dst = color;	
 }
 
-void	draw(s_img *f, s_fractal *d)
+int	div(void)
+{
+
+}
+
+void	draw(s_img *frame, s_pxl *p)
 {
 	int	h;
 	int	l;
 
 	h = 0;
+	p = 0x00000000;
 	while (h < HF)
 	{
 		l = 0;
-		while (l < LF/2)
+		while (l < LF)
 		{
-			my_pixel_put(f, l, h, 0x00610000);
+			if (div)
+				p = 0x00000042;
+			my_pixel_put(frame, l, h, p->color);
 			l++;
 		}
 		h++;

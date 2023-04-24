@@ -15,14 +15,17 @@ int	main(void)
 {
 	s_mlx	*mlx;
 	s_img	*img;
+	s_pxl	*pxl;
 
 	mlx = init();
 	img = init_img(mlx);
-	draw(img);
+	pxl = malloc(sizeof(s_pxl));
+	draw(img, pxl);
 	mlx_hook(mlx->win, 2, 1L<<0, key_hook, &mlx);
 	mlx_put_image_to_window(mlx->ptr, mlx->win, img->img, 0, 0);
 	mlx_loop(mlx->ptr);
 	free(mlx);
 	free(img);
+	free(pxl);
 	return (0);
 }
