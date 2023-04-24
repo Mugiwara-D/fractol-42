@@ -6,20 +6,20 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:47:43 by maderuel          #+#    #+#             */
-/*   Updated: 2023/04/16 16:11:35 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/04/24 16:07:10 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <fract_ol.h>
 
 int	main(void)
 {
-	s_mlx	*mlx;
-	s_img	*img;
-	s_pxl	*pxl;
+	t_mlx	*mlx;
+	t_img	*img;
+	t_pxl	*pxl;
 
 	mlx = init();
 	img = init_img(mlx);
-	pxl = malloc(sizeof(s_pxl));
+	pxl = malloc(sizeof(t_pxl));
 	draw(img, pxl);
 	mlx_hook(mlx->win, 2, 1L<<0, key_hook, &mlx);
 	mlx_put_image_to_window(mlx->ptr, mlx->win, img->img, 0, 0);

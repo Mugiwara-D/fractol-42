@@ -1,10 +1,10 @@
 #include <fract_ol.h>
 
-s_mlx	*init()
+t_mlx	*init()
 {
-	s_mlx	*mlx;
+	t_mlx	*mlx;
 
-	mlx = malloc(sizeof(s_mlx));
+	mlx = malloc(sizeof(t_mlx));
 	if (!mlx)
 		return (NULL);
 	mlx->ptr = mlx_init();
