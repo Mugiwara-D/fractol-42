@@ -32,26 +32,39 @@ void	my_pixel_put(t_img *f, int x, int y, int color)
 
 int	mandelbrot(t_pxl *p)
 {
-	float	zr;
-	float	zi;
+	t_complex	z;
+	t_complex	c;
+	t_fractal	f;
+	float		zoomx;
+	float		zoomy;
+	float		tmp;
 	int		i;
-	float	cy;
-	float	cx;
-	float	tmp;
+	
+	f.ymax = 1.2;
+	f.xmax = 0.6;
+	f.ymin = -1.2;
+	f.xmin = -2.1;
+	f.imax = 50;
 
-	cx = p->x / (LF / (0.6 - (-2.1))) + -2.1;
-	cy = p->y / (HF / (1.2 - (-1.2))) + -1.2;
+	zoomx = LF / (f.xmax - f.xmin);
+	zoomy = HF / (f.ymax - f.ymin);
+
+	c.r = p->x / zoomx + f.xmin;
+	c.i = p->y / zoomy + f.ymin;
+
+	z.r = 0;
+	z.i = 0;
 	i = 0;
-	zr = 0;
-	zi = 0;
-	while ((zr * zr + zi * zi) < 4 && i < 50)
+
+	while ((z.r * z.r + z.i * z.i) < 4 && i < f.imax)
 	{
-		tmp = zr;
-		zr = zr * zr - zi * zi + cx;
-		zi = 2 * zi * tmp + cy;
+		tmp = z.r;
+		z.r = z.r * z.r - z.i * z.i + c.r;
+		z.i = 2 * z.i * tmp + c.i;
 		i++;
 	}
 	return (i);
+
 }
 
 void	draw(t_img *frame, t_pxl *p)
@@ -67,6 +80,7 @@ void	draw(t_img *frame, t_pxl *p)
 	while (h < HF)
 	{
 		l = 0;
+		p->x = 0;
 		while (l < LF)
 		{
 			o = mandelbrot(p);

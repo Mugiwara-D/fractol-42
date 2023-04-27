@@ -28,8 +28,8 @@ typedef struct mlx_data
 
 typedef struct s_complex
 {
-	double	rel;
-	double	ima;
+	double	r;
+	double	i;
 }	t_complex;
 
 typedef struct pixel_data
@@ -51,6 +51,12 @@ typedef struct img_data
 typedef struct fractal_data
 {
 	char	*name;
+	float	ymax;
+	float	xmax;
+	float	ymin;
+	float	xmin;
+	int	zoom;
+	int	imax;
 	
 }	t_fractal;
 
