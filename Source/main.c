@@ -11,12 +11,20 @@
 /* ************************************************************************** */
 #include <fract_ol.h>
 
-int	main(void)
+int	check_arg(char **args)
+{
+
+	return (s_cmp(args[1], "madelbrot"));
+}
+
+int	main(int ac, char **av)
 {
 	t_mlx	*mlx;
 	t_img	*img;
 	t_pxl	*pxl;
 
+	if (check_arg(av))
+		return (0 * ft_printf("bad entries, try with:\nmandelbrot\njulia + specification"));
 	mlx = init();
 	img = init_img(mlx);
 	pxl = malloc(sizeof(t_pxl));

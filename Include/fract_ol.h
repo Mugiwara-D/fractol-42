@@ -18,6 +18,7 @@
 
 # include <../minilibx-linux/mlx.h>
 # include <stdlib.h>
+# include <ft_printf.h>
 
 typedef struct mlx_data
 {
@@ -65,5 +66,6 @@ void	draw(t_img *frame, t_pxl *p);
 t_mlx	*init(void);
 int		key_hook(int keycode, t_mlx *mlx);
 void	my_pixel_put(t_img *data, int x, int y, int color);
+int	s_cmp(char *s1, char *s2);
 
 #endif

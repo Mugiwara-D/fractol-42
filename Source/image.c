@@ -64,7 +64,6 @@ int	mandelbrot(t_pxl *p)
 		i++;
 	}
 	return (i);
-
 }
 
 void	draw(t_img *frame, t_pxl *p)
