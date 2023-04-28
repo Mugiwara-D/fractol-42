@@ -14,7 +14,7 @@
 int	check_arg(char **args)
 {
 
-	return (s_cmp(args[1], "madelbrot"));
+	return (s_cmp(args[1], "madelbrot") + s_cmp(args[1], "julia"));
 }
 
 int	main(int ac, char **av)
