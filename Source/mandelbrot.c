@@ -11,44 +11,34 @@
 /* ************************************************************************** */
 #include <fract_ol.h>
 
-t_fractal	init_mandelbrot(void)
+void	init_mandelbrot(t_fractal *f)
 {
-	t_fractal	f;
 	
-	f.ymax = 1;
-	f.xmax = 0.4;
-	f.ymin = -1;
-	f.xmin = -1.9;
-	f.imax = 100;
-	return (f);
+	f->base.ymax = 1.2;
+	f->base.xmax = 0.6;
+	f->base.ymin = -1.2;
+	f->base.xmin = -2.1;
+	f->imax = 100;
+	f->zoom.mz = 300;
 }
 
-int	mandelbrot(t_pxl *p)
+int	mandelbrot(t_pxl *p, t_fractal	*f)
 {
-	t_complex	z;
-	t_complex	c;
-	t_fractal	f;
-	float		zoomx;
-	float		zoomy;
 	float		tmp;
-	int			i;
+	int		i;
 
-	f = init_mandelbrot();
-	zoomx = LF / (f.xmax - f.xmin);
-	zoomy = HF / (f.ymax - f.ymin);
+	f->c.r = p->x / f->zoom.mz + f->base.xmin;
+	f->c.i = p->y / f->zoom.mz + f->base.ymin;
 
-	c.r = p->x / zoomx + f.xmin;
-	c.i = p->y / zoomy + f.ymin;
-
-	z.r = 0;
-	z.i = 0;
+	f->z.r = 0;
+	f->z.i = 0;
 	i = 0;
 
-	while ((z.r * z.r + z.i * z.i) < 4 && i < f.imax)
+	while ((f->z.r * f->z.r + f->z.i * f->z.i) < 4 && i < f->imax)
 	{
-		tmp = z.r;
-		z.r = z.r * z.r - z.i * z.i + c.r;
-		z.i = 2 * z.i * tmp + c.i;
+		tmp = f->z.r;
+		f->z.r = f->z.r * f->z.r - f->z.i * f->z.i + f->c.r;
+		f->z.i = 2 * f->z.i * tmp + f->c.i;
 		i++;
 	}
 	return (i);

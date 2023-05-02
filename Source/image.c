@@ -32,41 +32,40 @@ void	my_pixel_put(t_img *f, int x, int y, int color)
 
 int	palet(int i)
 {
-	if (i > 75)
+	if (i > 100)
+		return (0x00003300);
+	else if (i > 75)
 		return (0x00FF0000);
 	else if (i > 50)
 		return (0x00880000);
 	else if (i > 25)
-		return (0x00110000);
+		return (0x00500000);
 	else
-		return (0x00000000);
+		return (0x00100000);
 }
 
-void	draw(t_img *frame, t_pxl *p)
+void	draw(t_img *frame, t_pxl *p, t_fractal *f, int	(*comp)(t_pxl *,t_fractal *))
 {
-	int	h;
-	int	l;
 	int	o;
 
-	h = 0;
-	p->x = 0;
 	p->y = 0;
-	while (h < HF)
+	f->zoom.zx = (f->base.xmax - f->base.xmin) * f->zoom.mz;
+	f->zoom.zy = (f->base.ymax - f->base.ymin) * f->zoom.mz;
+
+
+	while (p->y < f->zoom.zy && p->y < HF)
 	{
-		l = 0;
 		p->x = 0;
-		while (l < LF)
+		while (p->x < f->zoom.zx && p->x < LF)
 		{
-			o = mandelbrot(p);
-			if (o == 100)
+			o = comp(p, f);
+			if (o == f->imax)
 				p->color = 0x00000000;
 			else
 				p->color = palet(o);
-			my_pixel_put(frame, l, h, p->color);
+			my_pixel_put(frame, p->x, p->y, p->color);
 			p->x++;
-			l++;
 		}
 		p->y++;
-		h++;
 	}
 }

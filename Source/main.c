@@ -11,14 +11,23 @@
 /* ************************************************************************** */
 #include <fract_ol.h>
 
-t_fractal	init_f(char **args)
+t_fractal	*init_f(char **args)
 {
-	t_fractal	f;
+	t_fractal	*f;
 
-	if (s_cmp(args[1], "mandelbrot") || args[1][0] == 'm')
-		f.name = "mandelbrot";
-	else if (s_cmp(args[1], "julia"))
-		f.name = "julia";
+	f = malloc(sizeof(t_fractal));
+	if (!s_cmp(args[1], "mandelbrot"))
+	{
+		f->name = "mandelbrot";
+		init_mandelbrot(f);
+		return (f);
+	}
+	else if (!s_cmp(args[1], "julia"))
+	{	
+		f->name = "julia";
+		init_julia(f);
+		return (f);
+	}
 	return (f);
 }
 
@@ -27,21 +36,32 @@ int	check_args(char **arg)
 	return (s_cmp(arg[1], "mandelbrot") + s_cmp(arg[1], "julia"));
 }
 
+void	render_img(t_fractal *f, t_pxl *p, t_mlx *mlx)
+{
+	if (!s_cmp(f->name, "mandelbrot"))
+		draw(mlx->img, p, f, &mandelbrot);
+	else if (!s_cmp(f->name, "julia"))
+		draw(mlx->img, p, f, &julia);
+	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->img->img, 0, 0);
+}
+
 int	main(int ac, char **av)
 {
 	t_mlx	*mlx;
-	t_img	*img;
 	t_pxl	*pxl;
+	t_fractal	*f;
 
+	f = init_f(av);
 	mlx = init();
-	img = init_img(mlx);
+	mlx->img = init_img(mlx);
 	pxl = malloc(sizeof(t_pxl));
-	draw(img, pxl);
 	mlx_hook(mlx->win, 2, 1L << 0, key_hook, &mlx);
-	mlx_put_image_to_window(mlx->ptr, mlx->win, img->img, 0, 0);
+	mlx_mouse_hook(mlx->win, mos_hook, &mlx);
+	render_img(f, pxl, mlx);
 	mlx_loop(mlx->ptr);
 	free(mlx);
-	free(img);
+	free(mlx->img);
 	free(pxl);
+	free(f);
 	return (0);
 }

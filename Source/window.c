@@ -11,5 +11,3 @@ t_mlx	*init()
 	mlx->win = mlx_new_window(mlx->ptr, LF, HF, "fract-ol");
 	return (mlx);
 }
-
-
