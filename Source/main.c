@@ -45,6 +45,14 @@ void	render_img(t_fractal *f, t_pxl *p, t_mlx *mlx)
 	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->img->img, 0, 0);
 }
 
+void	ft_exit(t_mlx *m, t_pxl *p, t_fractal *f)
+{
+	mlxclean(m);
+	ft_memdel((void **) &m);
+	ft_memdel((void **) &p);
+	ft_memdel((void **) &f);
+}
+
 int	main(int ac, char **av)
 {
 	t_mlx	*mlx;
@@ -59,9 +67,5 @@ int	main(int ac, char **av)
 	mlx_mouse_hook(mlx->win, mos_hook, &mlx);
 	render_img(f, pxl, mlx);
 	mlx_loop(mlx->ptr);
-	free(mlx);
-	free(mlx->img);
-	free(pxl);
-	free(f);
 	return (0);
 }

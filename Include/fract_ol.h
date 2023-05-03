@@ -19,6 +19,7 @@
 # include <../minilibx-linux/mlx.h>
 # include <stdlib.h>
 # include <ft_printf.h>
+# include <libft.h>
 
 typedef struct s_complex
 {
@@ -92,4 +93,6 @@ int	mlxclean(t_mlx *mlx);
 int	mos_hook(int btn, int x, int y, t_fractal *f, t_pxl *p, t_mlx *mlx);
 void	zoom_in(t_fractal *f);
 void	render_img(t_fractal *f, t_pxl *p, t_mlx *mlx);
+void	ft_exit(t_mlx *m, t_pxl *p, t_fractal *f);
+
 #endif
