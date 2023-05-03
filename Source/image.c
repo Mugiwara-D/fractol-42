@@ -6,20 +6,17 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:29:11 by maderuel          #+#    #+#             */
-/*   Updated: 2023/04/28 15:19:02 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/03 14:47:43 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fract_ol.h>
 
-t_img	*init_img(t_mlx *mlx)
+void	init_img(t_mlx *mlx)
 {
-	t_img	*img;
 
-	img = malloc(sizeof(t_img));
-	img->img = mlx_new_image(mlx->ptr, LF, HF);
-	img->ptr = mlx_get_data_addr(img->img, &img->bpp, &img->lil, &img->end);
-	return (img);
+	mlx->img.img = mlx_new_image(mlx->ptr, LF, HF);
+	mlx->img.ptr = mlx_get_data_addr(mlx->img.img, &mlx->img.bpp, &mlx->img.lil, &mlx->img.end);
 }
 
 void	my_pixel_put(t_img *f, int x, int y, int color)
