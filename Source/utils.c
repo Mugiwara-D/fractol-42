@@ -24,7 +24,7 @@ int	mlxclean(t_mlx *mlx)
 	del_image(mlx);
 	if (mlx->win)
 		mlx_destroy_window(mlx->ptr, mlx->win);
-	mlx_destroy_display(mlx->ptr);
+	//mlx_destroy_display(mlx->ptr);
 	free(mlx);
 	return (0);
 }
