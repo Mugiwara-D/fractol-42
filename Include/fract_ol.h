@@ -13,8 +13,8 @@
 #ifndef FRACT_OL_H
 # define FRACT_OL_H
 
-# define LF 1200
-# define HF 900
+# define LF 1920
+# define HF 1080
 
 # include <../minilibx-linux/mlx.h>
 # include <stdlib.h>
@@ -78,8 +78,9 @@ typedef struct fractal_data
 typedef int	(*comp)(t_pxl *,t_fractal *);
 
 void	init_img(t_mlx *mlx);
+t_fractal	*init_f(char **args);
 void	draw(t_img *frame, t_pxl *p, t_fractal *f, int (*comp)(t_pxl *, t_fractal *));
-t_mlx	*init(void);
+t_mlx	*init_m(void);
 int		key_hook(int keycode, t_mlx *mlx);
 void	my_pixel_put(t_img *data, int x, int y, int color);
 int		s_cmp(char *s1, char *s2);

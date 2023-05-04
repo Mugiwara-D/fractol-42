@@ -14,17 +14,18 @@ int	s_cmp(char *s1, char *s2)
 	return (0);
 }
 
-void	del_image(t_mlx *mlx)
-{
-	mlx_destroy_image(mlx->ptr, mlx->img.img);
-}
-
 int	mlxclean(t_mlx *mlx)
 {
-	del_image(mlx);
-	if (mlx->win)
+	if (mlx->img.img && mlx->ptr)
+		mlx_destroy_image(mlx->ptr, mlx->img.img);
+	if (mlx->ptr && mlx->win)
 		mlx_destroy_window(mlx->ptr, mlx->win);
-	//mlx_destroy_display(mlx->ptr);
+	if (mlx->ptr)
+		mlx_destroy_display(mlx->ptr);
+	free(mlx->ptr);
+	free(mlx->win);
+	free(mlx->img.img);
+	free(mlx->img.ptr);
 	free(mlx);
 	return (0);
 }

@@ -12,12 +12,7 @@
 
 #include <fract_ol.h>
 
-void	init_img(t_mlx *mlx)
-{
 
-	mlx->img.img = mlx_new_image(mlx->ptr, LF, HF);
-	mlx->img.ptr = mlx_get_data_addr(mlx->img.img, &mlx->img.bpp, &mlx->img.lil, &mlx->img.end);
-}
 
 void	my_pixel_put(t_img *f, int x, int y, int color)
 {
