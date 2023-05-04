@@ -18,14 +18,14 @@ int	mlxclean(t_mlx *mlx)
 {
 	if (mlx->img.img && mlx->ptr)
 		mlx_destroy_image(mlx->ptr, mlx->img.img);
-	if (mlx->ptr && mlx->win)
-		mlx_destroy_window(mlx->ptr, mlx->win);
 	if (mlx->ptr)
 		mlx_destroy_display(mlx->ptr);
+	if (mlx->ptr && mlx->win)
+		mlx_destroy_window(mlx->ptr, mlx->win);
 	free(mlx->ptr);
 	free(mlx->win);
 	free(mlx->img.img);
 	free(mlx->img.ptr);
 	free(mlx);
-	return (0);
+	exit (0);
 }
