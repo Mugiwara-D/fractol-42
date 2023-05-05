@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:29:11 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/03 14:47:43 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/05 15:00:38 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int	palet(int i)
 	else if (i > 50)
 		return (0x00880000);
 	else if (i > 25)
-		return (0x00500000);
+		return (0x00700000);
 	else
-		return (0x00100000);
+		return (0x00500000);
 }
 
 void	draw(t_img *frame, t_pxl *p, t_fractal *f, int	(*comp)(t_pxl *,t_fractal *))
