@@ -32,6 +32,7 @@ int	main(int ac, char **av)
 	t_mlx		*mlx;
 	t_pxl		*pxl;
 	t_fractal	*f;
+	t_ref		*ref;
 
 	(void) ac;
 	if (check_args(av))
@@ -40,12 +41,15 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	pxl = malloc(sizeof(t_pxl));
+	ref = malloc(sizeof(t_ref));
 	f = init_f(av);
 	mlx = init_m();
+	ref->m = mlx;
+	ref->f = f;
+	ref->p = pxl;
 	render_img(f, pxl, mlx);
-	mlx_key_hook(mlx->win, key_hook, mlx);
+	mlx_key_hook(mlx->win, key_hook, ref);
+	mlx_mouse_hook(mlx->win, mos_hook, ref);
 	mlx_loop(mlx->ptr);
-	free(pxl);
-	free(f);
 	return (0);
 }

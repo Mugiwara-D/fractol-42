@@ -12,22 +12,24 @@
 
 #include <fract_ol.h>
 
-int	key_hook(int keycode, t_mlx *mlx)
+int	key_hook(int keycode, t_ref *ref)
 {
 	if (keycode == 65307)
-		mlxclean(mlx);
+		end_prog(ref);
 	return (0);
 }
 
-int	mos_hook(int btn, int x, int y, t_fractal *f, t_pxl *p, t_mlx *mlx)
-{
-	(void) x;
-	(void) y;
+int	mos_hook(int btn, int x, int y, t_ref *ref)
+{	
+	
 	if (btn == 4)
 	{
-		zoom_in(f);
-		init_img(mlx);
-		render_img(f, p, mlx);
+		ft_printf("%s : zom_in x |%d| y |%d| \n", ref->f->name, x, y);
+		zoom_in(ref->f);
+		ft_bzero(&ref->m->img, sizeof(t_img));
+		init_img(ref->m);
+		render_img(ref->f, ref->p, ref->m);
 	}
+
 	return (0);
 }

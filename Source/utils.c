@@ -28,17 +28,24 @@ int	s_cmp(char *s1, char *s2)
 	return (0);
 }
 
-int	mlxclean(t_mlx *mlx)
+int	end_prog(t_ref *ref)
 {
-	if (mlx->img.img && mlx->ptr)
-		mlx_destroy_image(mlx->ptr, mlx->img.img);
-	if (mlx->ptr && mlx->win)
-		mlx_destroy_window(mlx->ptr, mlx->win);
-	if (mlx->ptr)
-		mlx_destroy_display(mlx->ptr);
-	if (mlx->ptr)
-		free(mlx->ptr);
-	if (mlx)
-		free(mlx);
+	
+	if (ref->m->img.img && ref->m->ptr)
+		mlx_destroy_image(ref->m->ptr, ref->m->img.img);
+	if (ref->m->ptr && ref->m->win)
+		mlx_destroy_window(ref->m->ptr, ref->m->win);
+	if (ref->m->ptr)
+		mlx_destroy_display(ref->m->ptr);
+	if (ref->m->ptr)
+		free(ref->m->ptr);
+	if (ref->m)
+		free(ref->m);
+	if (ref->f)
+		free(ref->f);
+	if (ref->p)
+		free(ref->p);
+	if (ref)
+		free(ref);
 	exit (0);
 }

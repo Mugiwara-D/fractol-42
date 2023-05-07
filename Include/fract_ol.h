@@ -75,21 +75,28 @@ typedef struct fractal_data
 	t_view		zoom;
 }	t_fractal;
 
+typedef struct	s_references
+{
+	t_mlx	*m;
+	t_fractal	*f;
+	t_pxl	*p;
+}	t_ref;
+
 typedef int	(*comp)(t_pxl *,t_fractal *);
 
 void	init_img(t_mlx *mlx);
 t_fractal	*init_f(char **args);
 void	draw(t_img *frame, t_pxl *p, t_fractal *f, int (*comp)(t_pxl *, t_fractal *));
 t_mlx	*init_m(void);
-int		key_hook(int keycode, t_mlx *mlx);
+int		key_hook(int keycode, t_ref *ref);
 void	my_pixel_put(t_img *data, int x, int y, int color);
 int		s_cmp(char *s1, char *s2);
 int		mandelbrot(t_pxl *p, t_fractal *f);
 int		julia(t_pxl *p, t_fractal *f);
 void	init_julia(t_fractal *f);
 void	init_mandelbrot(t_fractal *f);
-int		mlxclean(t_mlx *mlx);
-int		mos_hook(int btn, int x, int y, t_fractal *f, t_pxl *p, t_mlx *mlx);
+int		end_prog(t_ref *ref);
+int	mos_hook(int btn, int x, int y, t_ref *ref);
 void	zoom_in(t_fractal *f);
 void	render_img(t_fractal *f, t_pxl *p, t_mlx *mlx);
 void	ft_exit(t_mlx *m, t_pxl *p, t_fractal *f);
