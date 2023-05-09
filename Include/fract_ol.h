@@ -97,7 +97,7 @@ void	init_julia(t_fractal *f);
 void	init_mandelbrot(t_fractal *f);
 int		end_prog(t_ref *ref);
 int	mos_hook(int btn, int x, int y, t_ref *ref);
-void	zoom_in(t_fractal *f);
+void	zoom_in(t_fractal *f, int x, int y);
 void	render_img(t_fractal *f, t_pxl *p, t_mlx *mlx);
 void	ft_exit(t_mlx *m, t_pxl *p, t_fractal *f);
 

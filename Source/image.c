@@ -43,8 +43,6 @@ void	draw(t_img *frame, t_pxl *p, t_fractal *f, int	(*comp)(t_pxl *,t_fractal *)
 	p->y = 0;
 	f->zoom.zx = (f->base.xmax - f->base.xmin) * f->zoom.mz;
 	f->zoom.zy = (f->base.ymax - f->base.ymin) * f->zoom.mz;
-
-
 	while (p->y < f->zoom.zy && p->y < HF)
 	{
 		p->x = 0;

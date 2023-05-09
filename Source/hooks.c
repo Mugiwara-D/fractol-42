@@ -25,7 +25,7 @@ int	mos_hook(int btn, int x, int y, t_ref *ref)
 	if (btn == 4)
 	{
 		ft_printf("%s : zom_in x |%d| y |%d| \n", ref->f->name, x, y);
-		zoom_in(ref->f);
+		zoom_in(ref->f, x, y);
 		ft_bzero(&ref->m->img, sizeof(t_img));
 		init_img(ref->m);
 		render_img(ref->f, ref->p, ref->m);

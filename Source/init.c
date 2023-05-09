@@ -14,10 +14,17 @@
 
 void	init_img(t_mlx *mlx)
 {
+	if (mlx->img.img)
+		mlx_destroy_image(mlx->ptr, mlx->img.img);
 	mlx->img.img = mlx_new_image(mlx->ptr, LF, HF);
-	if (!mlx->img.img)
-		exit (0) ;
-	mlx->img.ptr = mlx_get_data_addr(mlx->img.img, &mlx->img.bpp, &mlx->img.lil, &mlx->img.end);
+	if (mlx->img.img)
+	{
+		if (mlx->img.ptr)
+			free(mlx->img.ptr);
+		mlx->img.ptr = mlx_get_data_addr(mlx->img.img, &mlx->img.bpp, &mlx->img.lil, &mlx->img.end);
+	}
+	else
+		exit(0);
 }
 
 t_mlx	*init_m(void)
