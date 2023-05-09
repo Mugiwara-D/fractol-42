@@ -6,13 +6,11 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:29:11 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/05 15:00:38 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/09 15:27:13 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fract_ol.h>
-
-
 
 void	my_pixel_put(t_img *f, int x, int y, int color)
 {
@@ -35,6 +33,8 @@ int	palet(int i)
 	else
 		return (0x00500000);
 }
+
+
 
 void	draw(t_img *frame, t_pxl *p, t_fractal *f, int	(*comp)(t_pxl *,t_fractal *))
 {

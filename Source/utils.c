@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:26:30 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/05 16:17:25 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:38:32 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	s_cmp(char *s1, char *s2)
 
 int	end_prog(t_ref *ref)
 {
-	
 	if (ref->m->img.img && ref->m->ptr)
 		mlx_destroy_image(ref->m->ptr, ref->m->img.img);
 	if (ref->m->ptr && ref->m->win)
@@ -49,3 +48,4 @@ int	end_prog(t_ref *ref)
 		free(ref);
 	exit (0);
 }
+
