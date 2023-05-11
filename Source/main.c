@@ -6,14 +6,15 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:47:43 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/05 16:33:09 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/11 15:04:49 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <fract_ol.h>
 
 int	check_args(char **arg)
 {
-	if (s_cmp(arg[1], "mandelbrot") || s_cmp(arg[1], "julia") || s_cmp(arg[1], "j"))
+	if (s_cmp(arg[1], "mandelbrot")
+		|| s_cmp(arg[1], "julia") || s_cmp(arg[1], "j"))
 		return (0);
 	return (1);
 }
@@ -49,7 +50,6 @@ int	main(int ac, char **av)
 	ref->p = pxl;
 	render_img(f, pxl, mlx);
 	mlx_key_hook(mlx->win, key_hook, ref);
-	//mlx_mouse_hook(mlx->win, mos_hook, ref);
 	mlx_hook(mlx->win, 4, 1L << 2, mos_hook, ref);
 	mlx_loop(mlx->ptr);
 	return (0);

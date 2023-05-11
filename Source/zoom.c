@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 14:23:45 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/09 15:39:18 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/11 15:01:53 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	zoom_in(t_fractal *f, int x, int y)
 	f->zoom.zx -= ((float)x / LF) * (nx - w);
 	f->zoom.zy -= ((float)y / HF) * (ny - h);
 }
+
 void	zoom_out(t_fractal *f, int x, int y)
 {
 	float	w;

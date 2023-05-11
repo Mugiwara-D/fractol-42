@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:24:50 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/09 15:43:38 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/11 15:16:29 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ typedef struct fractal_data
 	t_view		zoom;
 }	t_fractal;
 
-typedef struct	s_references
+typedef struct s_references
 {
 	t_mlx		*m;
 	t_fractal	*f;

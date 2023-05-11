@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 13:46:16 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/09 15:47:36 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/11 14:31:45 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <fract_ol.h>
@@ -15,7 +15,6 @@ void	init_mandelbrot(t_fractal *f)
 {
 	f->base.ymax = ((2.1 - (-2.1)) * HF / LF / 2);
 	f->base.ymin = -((2.1 - (-2.1)) * HF / LF / 2);
-
 	f->base.xmax = ((1.2 - (-1.2)) * LF / HF / 2);
 	f->base.xmin = -((1.2 - (-1.2)) * LF / HF / 2);
 	f->imax = 100;
@@ -30,7 +29,6 @@ int	mandelbrot(t_pxl *p, t_fractal	*f)
 	f->z.r = 0;
 	f->z.i = 0;
 	f->c = screen_to_complex(p, f);
-	//f->z = screen_to_complex(p->x, p->y, f);
 	i = 0;
 	while ((f->z.r * f->z.r + f->z.i * f->z.i) < 4 && i < f->imax)
 	{
