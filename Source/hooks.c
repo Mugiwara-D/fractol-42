@@ -30,6 +30,15 @@ int	mos_hook(int btn, int x, int y, t_ref *ref)
 		init_img(ref->m);
 		render_img(ref->f, ref->p, ref->m);
 	}
+	else if (btn == 5)
+	{
+		ft_printf("%s : zom_out x |%d| y |%d| \n", ref->f->name, x, y);
+		zoom_out(ref->f, x, y);
+		ft_bzero(&ref->m->img, sizeof(t_img));
+		init_img(ref->m);
+		render_img(ref->f, ref->p, ref->m);
+	}
+
 
 	return (0);
 }
