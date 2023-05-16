@@ -13,9 +13,31 @@
 
 int	key_hook(int keycode, t_ref *ref)
 {
-	if (keycode == 65307)
+	if (keycode == K_ESC)
 		end_prog(ref);
+	key_move(keycode, ref);
 	return (0);
+}
+
+void	key_move(int key, t_ref *ref)
+{
+	float	w;
+	float	h;
+
+	w = (ref->f->base.xmax - ref->f->base.xmin) * ref->f->zoom.mz;
+	h = (ref->f->base.ymax - ref->f->base.ymin) * ref->f->zoom.mz;
+	if (key == K_UP)
+		ref->f->zoom.zy -= h * 0.05;
+	if (key == K_DOWN)
+		ref->f->zoom.zy += h * 0.05;
+	if (key == K_LEFT)
+		ref->f->zoom.zx -= w * 0.05;
+	if (key == K_RIGHT)
+		ref->f->zoom.zx += w * 0.05;
+
+	ft_bzero(&ref->m->img, sizeof(t_img));
+	init_img(ref->m);
+	render_img(ref->f, ref->p, ref->m);
 }
 
 int	mos_hook(int btn, int x, int y, t_ref *ref)
@@ -36,3 +58,8 @@ int	mos_hook(int btn, int x, int y, t_ref *ref)
 	}
 	return (0);
 }
+
+/*int	mos_mov(int x, int y, t_ref *ref)
+{
+
+}*/

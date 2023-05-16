@@ -51,6 +51,7 @@ int	main(int ac, char **av)
 	render_img(f, pxl, mlx);
 	mlx_key_hook(mlx->win, key_hook, ref);
 	mlx_hook(mlx->win, 4, 1L << 2, mos_hook, ref);
+	mlx_hook(mlx->win, 17, 0, end_prog, ref);
 	mlx_loop(mlx->ptr);
 	return (0);
 }

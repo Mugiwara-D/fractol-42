@@ -20,6 +20,7 @@
 # include <stdlib.h>
 # include <ft_printf.h>
 # include <libft.h>
+# include <keycode.h>
 
 typedef struct s_complex
 {
@@ -102,5 +103,6 @@ void		zoom_out(t_fractal *f, int x, int y);
 void		render_img(t_fractal *f, t_pxl *p, t_mlx *mlx);
 void		ft_exit(t_mlx *m, t_pxl *p, t_fractal *f);
 t_complex	screen_to_complex(t_pxl *p, t_fractal *f);
+void	key_move(int key, t_ref *ref);
 
 #endif
