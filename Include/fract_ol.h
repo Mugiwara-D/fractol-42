@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:24:50 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/12 14:24:07 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:33:30 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdlib.h>
 # include <ft_printf.h>
 # include <libft.h>
+# include <keycode.h>
 
 typedef struct s_complex
 {
@@ -52,17 +53,17 @@ typedef struct mlx_data
 
 typedef struct s_view
 {
-	float	zx;
-	float	zy;
-	float	mz;
+	double	zx;
+	double	zy;
+	double	mz;
 }	t_view;
 
 typedef struct s_fscope
 {	
-	float	ymax;
-	float	xmax;
-	float	ymin;
-	float	xmin;
+	double	ymax;
+	double	xmax;
+	double	ymin;
+	double	xmin;
 }	t_scope;
 
 typedef struct fractal_data
@@ -103,5 +104,6 @@ void		render_img(t_fractal *f, t_pxl *p, t_mlx *mlx);
 void		ft_exit(t_mlx *m, t_pxl *p, t_fractal *f);
 t_complex	screen_to_complex(t_pxl *p, t_fractal *f);
 t_img		del_img(t_ref *ref);
+void	key_move(int key, t_ref *ref);
 
 #endif

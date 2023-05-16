@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:26:30 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/12 14:29:47 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/16 15:36:30 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int	s_cmp(char *s1, char *s2)
 	i = 0;
 	if (!s1 || !s2)
 		return (-1);
-	while (s1[i] || s2[i])
+	if (ft_strlen(s1) != ft_strlen(s2))
+		return (1);
+	while (s2[i] && s1[i])
 	{
 		if (s1[i] != s2[i])
 			return (1);
