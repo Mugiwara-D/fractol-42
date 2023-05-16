@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:36:07 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/05 15:44:37 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/12 14:26:36 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,8 @@
 
 void	init_img(t_mlx *mlx)
 {
-	if (mlx->img.img)
-		mlx_destroy_image(mlx->ptr, mlx->img.img);
 	mlx->img.img = mlx_new_image(mlx->ptr, LF, HF);
-	if (mlx->img.img)
-	{
-		if (mlx->img.ptr)
-			free(mlx->img.ptr);
-		mlx->img.ptr = mlx_get_data_addr(mlx->img.img, &mlx->img.bpp, &mlx->img.lil, &mlx->img.end);
-	}
-	else
-		exit(0);
+	mlx->img.ptr = mlx_get_data_addr(mlx->img.img, &mlx->img.bpp, &mlx->img.lil, &mlx->img.end);
 }
 
 t_mlx	*init_m(void)
@@ -48,13 +39,13 @@ t_fractal	*init_f(char **args)
 {
 	t_fractal	*f;
 
-	f = malloc(sizeof(t_fractal));
+	f = calloc(1, sizeof(t_fractal));
 	if (!f)
 		return (NULL);
 	if (!s_cmp(args[1], "mandelbrot"))
 	{
 		f->name = "mandelbrot";
-		init_mandelbrot(f);
+		f = init_mandelbrot(f);
 		return (f);
 	}
 	else if (!s_cmp(args[1], "julia"))

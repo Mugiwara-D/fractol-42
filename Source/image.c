@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:29:11 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/11 15:06:00 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/12 14:24:31 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,18 @@ int	palet(int i)
 		return (0x00500000);
 }
 
-void	draw(t_img *frame, t_pxl *p, t_fractal *f, int	(*comp)(t_pxl *,t_fractal *))
+void	draw(t_img *frame, t_pxl *p, t_fractal *f, int	(*t_comp)(t_pxl *,t_fractal *))
 {
 	int	o;
 
 	p->y = 0;
+	o = 0;
 	while (p->y < HF)
 	{
 		p->x = 0;
 		while (p->x < LF)
 		{
-			o = comp(p, f);
+			o = t_comp(p, f);
 			if (o == f->imax)
 				p->color = 0x00000000;
 			else
