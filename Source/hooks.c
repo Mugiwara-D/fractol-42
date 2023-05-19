@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 14:04:54 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/16 15:15:55 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/19 16:45:06 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <fract_ol.h>
@@ -15,6 +15,8 @@ int	key_hook(int keycode, t_ref *ref)
 {
 	if (keycode == K_ESC)
 		end_prog(ref);
+	else if (keycode == K_C)
+		update_colors(ref);
 	key_move(keycode, ref);
 	return (0);
 }

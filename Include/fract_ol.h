@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:24:50 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/16 16:33:30 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/19 18:10:14 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,9 @@ typedef struct fractal_data
 	t_scope		base;
 	t_complex	z;
 	t_complex	c;
-	int			imax;
 	t_view		zoom;
+	int			imax;
+	int			cop;
 }	t_fractal;
 
 typedef struct s_references
@@ -84,10 +85,13 @@ typedef struct s_references
 }	t_ref;
 
 typedef int	(*t_comp)(t_pxl *,t_fractal *);
+typedef int	(*t_colors)(int i, int cop);
 
 void		init_img(t_mlx *mlx);
 t_fractal	*init_f(char **args);
-void		draw(t_img *frame, t_pxl *p, t_fractal *f, int (*t_comp)(t_pxl *, t_fractal *));
+void		draw(t_img *frame, t_pxl *p, t_fractal *f,
+				int (*t_comp)(t_pxl *, t_fractal *),
+				int (*t_colors)(int i, int cop));
 t_mlx		*init_m(void);
 int			key_hook(int keycode, t_ref *ref);
 void		my_pixel_put(t_img *data, int x, int y, int color);
@@ -95,7 +99,7 @@ int			s_cmp(char *s1, char *s2);
 int			mandelbrot(t_pxl *p, t_fractal *f);
 int			julia(t_pxl *p, t_fractal *f);
 void		init_julia(t_fractal *f);
-t_fractal		*init_mandelbrot(t_fractal *f);
+t_fractal	*init_mandelbrot(t_fractal *f);
 int			end_prog(t_ref *ref);
 int			mos_hook(int btn, int x, int y, t_ref *ref);
 void		zoom_in(t_fractal *f, int x, int y);
@@ -104,6 +108,10 @@ void		render_img(t_fractal *f, t_pxl *p, t_mlx *mlx);
 void		ft_exit(t_mlx *m, t_pxl *p, t_fractal *f);
 t_complex	screen_to_complex(t_pxl *p, t_fractal *f);
 t_img		del_img(t_ref *ref);
-void	key_move(int key, t_ref *ref);
+void		key_move(int key, t_ref *ref);
+int			get_colors(int i, int c);
+void		update_colors(t_ref *ref);
+void		init_zierp(t_fractal *f);
+int			zierpinski(t_pxl *p, t_fractal *f);
 
 #endif

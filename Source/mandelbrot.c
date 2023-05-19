@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 13:46:16 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/12 14:23:10 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/19 15:41:23 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <fract_ol.h>
@@ -19,6 +19,7 @@ t_fractal	*init_mandelbrot(t_fractal *f)
 	f->base.xmin = -((1.2 - (-1.2)) * LF / HF / 2);
 	f->imax = 100;
 	f->zoom.mz = 1;
+	f->cop = 1;
 	return (f);
 }
 

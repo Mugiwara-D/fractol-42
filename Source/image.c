@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:29:11 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/16 16:45:13 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/19 15:45:11 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,8 @@ void	my_pixel_put(t_img *f, int x, int y, int color)
 	*(unsigned int *) dst = color;
 }
 
-int	palet(int i)
-{
-	if (i > 100)
-		return (0x00003300);
-	else if (i > 75)
-		return (0x00FF0000);
-	else if (i > 50)
-		return (0x00880000);
-	else if (i > 25)
-		return (0x000000FF);
-	else
-		return (0x00500000);
-}
-
 void	draw(t_img *frame, t_pxl *p, t_fractal *f,
-		int (*t_comp)(t_pxl *, t_fractal *))
+		int (*t_comp)(t_pxl *, t_fractal *), int (*t_colors)(int i, int cop))
 {
 	int	o;
 
@@ -50,7 +36,7 @@ void	draw(t_img *frame, t_pxl *p, t_fractal *f,
 			if (o == f->imax)
 				p->color = 0x00000000;
 			else
-				p->color = palet(o);
+				p->color = t_colors(o, f->cop);
 			my_pixel_put(frame, p->x, p->y, p->color);
 			p->x++;
 		}

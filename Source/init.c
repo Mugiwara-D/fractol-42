@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:36:07 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/16 15:38:44 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/19 18:06:09 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,12 @@ t_fractal	*init_f(char **args)
 	{	
 		f->name = "julia";
 		init_julia(f);
+		return (f);
+	}
+	else if (!s_cmp(args[1], "zierpinski") || !s_cmp(args[1], "z"))
+	{	
+		f->name = "zierpinski";
+		init_zierp(f);
 		return (f);
 	}
 	return (f);
