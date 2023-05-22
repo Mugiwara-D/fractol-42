@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 10:37:41 by maderuel          #+#    #+#             */
-/*   Updated: 2022/12/02 16:33:48 by maderuel         ###   ########.fr       */
+/*   Updated: 2022/12/05 11:08:52 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -33,8 +33,8 @@ int	ft_dstlen(long int n)
 
 char	*ft_itoa(int n)
 {
-	char	*ret;
-	int		l;
+	char		*ret;
+	int			l;
 	long int	nb;
 
 	nb = n;
