@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:24:50 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/19 18:10:14 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:36:13 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void		my_pixel_put(t_img *data, int x, int y, int color);
 int			s_cmp(char *s1, char *s2);
 int			mandelbrot(t_pxl *p, t_fractal *f);
 int			julia(t_pxl *p, t_fractal *f);
-void		init_julia(t_fractal *f);
+void		init_julia(t_fractal *f, char *arg);
 t_fractal	*init_mandelbrot(t_fractal *f);
 int			end_prog(t_ref *ref);
 int			mos_hook(int btn, int x, int y, t_ref *ref);
@@ -111,7 +111,8 @@ t_img		del_img(t_ref *ref);
 void		key_move(int key, t_ref *ref);
 int			get_colors(int i, int c);
 void		update_colors(t_ref *ref);
-void		init_zierp(t_fractal *f);
-int			zierpinski(t_pxl *p, t_fractal *f);
+double		dabs(double d);
+void		init_bns(t_fractal *f);
+int			burning_ship(t_pxl *p, t_fractal *f);
 
 #endif

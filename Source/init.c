@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:36:07 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/19 18:06:09 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:44:42 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ t_fractal	*init_f(char **args)
 	else if (!s_cmp(args[1], "julia") || !s_cmp(args[1], "j"))
 	{	
 		f->name = "julia";
-		init_julia(f);
+		init_julia(f, args[2]);
 		return (f);
 	}
-	else if (!s_cmp(args[1], "zierpinski") || !s_cmp(args[1], "z"))
+	else if (!s_cmp(args[1], "burning_ship") || !s_cmp(args[1], "b"))
 	{	
-		f->name = "zierpinski";
-		init_zierp(f);
+		f->name = "burning_ship";
+		init_bns(f);
 		return (f);
 	}
 	return (f);

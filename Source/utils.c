@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:26:30 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/16 15:36:30 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/22 13:35:13 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@ int	s_cmp(char *s1, char *s2)
 		i++;
 	}
 	return (0);
+}
+
+double	dabs(double d)
+{
+	if (d < 0)
+		return (d * -1);
+	return (d);
 }
 
 t_img	del_img(t_ref *ref)

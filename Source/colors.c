@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 15:18:22 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/19 16:52:27 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:02:50 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <fract_ol.h>
@@ -27,16 +27,16 @@ int	def(int i)
 
 int	linear(int i)
 {
-	if (i > 100)
-		return (0x0000FF00);
-	else if (i > 75)
-		return (0x00FF0000);
-	else if (i > 50)
-		return (0x00880000);
-	else if (i > 25)
-		return (0x000000FF);
+	if (i % 5 == 1)
+		return (0x00559597);
+	else if (i % 5 == 2)
+		return (0x00d0e1b8);
+	else if (i % 5 == 3)
+		return (0x009c9b86);
+	else if (i % 5 == 4)
+		return (0x0087c9ac);
 	else
-		return (0x00FF0000);
+		return (0x0044444c);
 }
 
 int	get_colors(int i, int c)
