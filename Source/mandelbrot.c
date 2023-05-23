@@ -19,7 +19,7 @@ t_fractal	*init_mandelbrot(t_fractal *f)
 	f->base.xmin = -((1.2 - (-1.2)) * LF / HF / 2);
 	f->imax = 100;
 	f->zoom.mz = 1;
-	f->cop = 1;
+	f->cop = 3;
 	return (f);
 }
 

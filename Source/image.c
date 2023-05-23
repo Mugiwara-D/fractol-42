@@ -21,7 +21,7 @@ void	my_pixel_put(t_img *f, int x, int y, int color)
 }
 
 void	draw(t_img *frame, t_pxl *p, t_fractal *f,
-		int (*t_comp)(t_pxl *, t_fractal *), int (*t_colors)(int i, int cop))
+		int (*t_comp)(t_pxl *, t_fractal *), int (*t_colors)(int i, int cop, t_fractal *))
 {
 	int	o;
 
@@ -36,7 +36,7 @@ void	draw(t_img *frame, t_pxl *p, t_fractal *f,
 			if (o == f->imax)
 				p->color = 0x00000000;
 			else
-				p->color = t_colors(o, f->cop);
+				p->color = t_colors(o, f->cop, f);
 			my_pixel_put(frame, p->x, p->y, p->color);
 			p->x++;
 		}

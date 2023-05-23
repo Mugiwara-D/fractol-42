@@ -85,13 +85,13 @@ typedef struct s_references
 }	t_ref;
 
 typedef int	(*t_comp)(t_pxl *,t_fractal *);
-typedef int	(*t_colors)(int i, int cop);
+typedef int	(*t_colors)(int i, int cop, t_fractal *);
 
 void		init_img(t_mlx *mlx);
 t_fractal	*init_f(char **args);
 void		draw(t_img *frame, t_pxl *p, t_fractal *f,
 				int (*t_comp)(t_pxl *, t_fractal *),
-				int (*t_colors)(int i, int cop));
+				int (*t_colors)(int i, int cop, t_fractal *));
 t_mlx		*init_m(void);
 int			key_hook(int keycode, t_ref *ref);
 void		my_pixel_put(t_img *data, int x, int y, int color);
@@ -109,7 +109,7 @@ void		ft_exit(t_mlx *m, t_pxl *p, t_fractal *f);
 t_complex	screen_to_complex(t_pxl *p, t_fractal *f);
 t_img		del_img(t_ref *ref);
 void		key_move(int key, t_ref *ref);
-int			get_colors(int i, int c);
+int			get_colors(int i, int c, t_fractal *f);
 void		update_colors(t_ref *ref);
 double		dabs(double d);
 void		init_bns(t_fractal *f);

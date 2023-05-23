@@ -21,9 +21,9 @@ void	zoom_in(t_fractal *f, int x, int y)
 
 	w = (f->base.xmax - f->base.xmin) * f->zoom.mz;
 	h = (f->base.ymax - f->base.ymin) * f->zoom.mz;
-	nx = (f->base.xmax - f->base.xmin) * (f->zoom.mz * 0.9);
-	ny = (f->base.ymax - f->base.ymin) * (f->zoom.mz * 0.9);
-	f->zoom.mz *= 0.9;
+	nx = (f->base.xmax - f->base.xmin) * (f->zoom.mz * 0.8);
+	ny = (f->base.ymax - f->base.ymin) * (f->zoom.mz * 0.8);
+	f->zoom.mz *= 0.8;
 	f->zoom.zx -= ((double)x / LF) * (nx - w);
 	f->zoom.zy -= ((double)y / HF) * (ny - h);
 }
@@ -37,9 +37,9 @@ void	zoom_out(t_fractal *f, int x, int y)
 
 	w = (f->base.xmax - f->base.xmin) * f->zoom.mz;
 	h = (f->base.ymax - f->base.ymin) * f->zoom.mz;
-	nx = (f->base.xmax - f->base.xmin) * (f->zoom.mz * 1.1);
-	ny = (f->base.ymax - f->base.ymin) * (f->zoom.mz * 1.1);
-	f->zoom.mz *= 1.1;
+	nx = (f->base.xmax - f->base.xmin) * (f->zoom.mz * 1.2);
+	ny = (f->base.ymax - f->base.ymin) * (f->zoom.mz * 1.2);
+	f->zoom.mz *= 1.2;
 	f->zoom.zx -= ((double)x / LF) * (nx - w);
 	f->zoom.zy -= ((double)y / HF) * (ny - h);
 }
