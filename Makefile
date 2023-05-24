@@ -1,4 +1,5 @@
-SRC = Source/burningship.c Source/colors.c Source/hooks.c Source/image.c Source/init.c Source/julia.c Source/main.c Source/mandelbrot.c Source/utils.c Source/zoom.c
+SRC = Source/burningship.c Source/colors.c Source/hooks.c Source/image.c Source/init.c \
+	  Source/julia.c Source/main.c Source/mandelbrot.c Source/utils.c Source/zoom.c Source/palet.c
 
 INC = ./Include
 
@@ -24,10 +25,11 @@ $(NAME) : bip boop clean
 
 boop : 
 	$(CC) $(FLAGS) $(OBJ) $(FINC) $(MLIB) $(PLIB) -o $(NAME)
+
 bip :
 	@make -C $(LIBS)
 	@make -C $(MLX)
-	$(CC) $(FLAGS) $(FINC) $(SRC) -I$(INC) -c 
+	$(CC) $(FLAGS) $(SRC) -I$(INC) -c 
 
 all: $(NAME)
 

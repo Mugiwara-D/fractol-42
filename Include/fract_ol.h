@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:24:50 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/22 14:36:13 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:18:51 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,5 +114,8 @@ void		update_colors(t_ref *ref);
 double		dabs(double d);
 void		init_bns(t_fractal *f);
 int			burning_ship(t_pxl *p, t_fractal *f);
+int			flame(int i);
+int			def(int i);
+int			linear(int i);
 
 #endif

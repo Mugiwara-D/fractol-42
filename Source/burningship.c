@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 11:55:38 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/22 13:55:13 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:33:21 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	init_bns(t_fractal *f)
 	f->base.ymin = -((2.2 - (-2.2)) * HF / LF / 2);
 	f->base.xmax = ((2.2 - (-2.2)) * LF / HF / 2);
 	f->base.xmin = -((2.2 - (-2.2)) * LF / HF / 2);
-	f->imax = 1000;
+	f->imax = 100;
 	f->zoom.mz = 1;
 	f->cop = 1;
 }

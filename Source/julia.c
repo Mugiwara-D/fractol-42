@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:25:59 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/22 14:47:33 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:36:04 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	init_julia(t_fractal *f, char *arg)
 	else if (!s_cmp(arg, "2"))
 		f->c = (t_complex){.r = -0.4, .i = 0.6};
 	else
-		f->c = (t_complex){.r = 0.285, .i = 0.01};
+		f->c = (t_complex){.r = 0.0, .i = 0.8};
 }
 
 int	julia(t_pxl *p, t_fractal *f)
