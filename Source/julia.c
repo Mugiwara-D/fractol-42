@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:25:59 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/24 14:36:04 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/24 15:59:31 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,17 @@ void	init_julia(t_fractal *f, char *arg)
 	f->base.xmin = -((1.2 - (-1.2)) * LF / HF / 2);
 	f->imax = 100;
 	f->zoom.mz = 1;
+	f->cop = 3;
 	if (!s_cmp(arg, "1"))
 		f->c = (t_complex){.r = -0.8, .i = 0.156};
 	else if (!s_cmp(arg, "2"))
 		f->c = (t_complex){.r = -0.4, .i = 0.6};
-	else
+	else if (!s_cmp(arg, "3"))
 		f->c = (t_complex){.r = 0.0, .i = 0.8};
+	else if (!s_cmp(arg, "4"))
+		f->c = (t_complex){.r = -0.835, .i = -0.232};
+	else if (!s_cmp(arg, "5"))
+		f->c = (t_complex){.r = -1.476, .i = 0};
 }
 
 int	julia(t_pxl *p, t_fractal *f)
