@@ -1,5 +1,6 @@
-SRC = Source/burningship.c Source/colors.c Source/hooks.c Source/image.c Source/init.c \
-	  Source/julia.c Source/main.c Source/mandelbrot.c Source/utils.c Source/zoom.c Source/palet.c
+SRC = Source/fractals/burningship.c Source/colors.c Source/hooks.c Source/image.c Source/init.c \
+	  Source/fractals/julia.c Source/main.c Source/fractals/mandelbrot.c Source/utils.c \
+	  Source/zoom.c Source/palet.c
 
 INC = ./Include
 
