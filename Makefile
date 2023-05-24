@@ -34,7 +34,7 @@ bip :
 all: $(NAME)
 
 clean :
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(notdir $(MLIB))
 
 fclean : clean
 	@make fclean -C $(LIBS)
