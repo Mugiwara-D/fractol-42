@@ -10,45 +10,64 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <fract_ol.h>
+#include <math.h>
 
-int	def(int i)
+int	red(double n)
 {
-	if (i % 6 == 1)
-		return (0x00009FF);
-	else if (i % 6 == 2)
-		return (0x00007CC);
-	else if (i % 6 == 3)
-		return (0x000005aa);
-	else if (i % 6 == 4)
-		return (0x00000377);
-	else
-		return (0x00000155);
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
+
+	r = (unsigned char)(255 * n);
+	g = (unsigned char)(69 * n);
+	b = (unsigned char)(42 * n);
+	return ((r << 16) | (g << 8) | b);
 }
 
-int	linear(int i)
+int	green(double n)
 {
-	if (i % 5 == 1)
-		return (0x00559597);
-	else if (i % 5 == 2)
-		return (0x00d0e1b8);
-	else if (i % 5 == 3)
-		return (0x009c9b86);
-	else if (i % 5 == 4)
-		return (0x0087c9ac);
-	else
-		return (0x0044444c);
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
+
+	r = (unsigned char)(42 * n);
+	g = (unsigned char)(255 * n);
+	b = (unsigned char)(69 * n);
+	return ((r << 16) | (g << 8) | b);
 }
 
-int	flame(int i)
+int	blue(double n)
 {
-	if (i % 5 == 1)
-		return (0x00ffe000);
-	else if (i % 5 == 2)
-		return (0x00fbb405);
-	else if (i % 5 == 3)
-		return (0x00fb9a05);
-	else if (i % 5 == 4)
-		return (0x00fb6d05);
-	else
-		return (0x00fb4805);
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
+
+	r = (unsigned char)(42 * n);
+	g = (unsigned char)(69 * n);
+	b = (unsigned char)(255 * n);
+	return ((r << 16) | (g << 8) | b);
+}
+
+int	gris(double n)
+{
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
+
+	r = (unsigned char)(110 * n);
+	g = (unsigned char)(200 * n);
+	b = (unsigned char)(255 * n);
+	return ((r << 16) | (g << 8) | b);
+}
+
+int	lsd(double n)
+{
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
+	
+	r = (unsigned char)(255 * (n * (n < 0.3 && n > 0)));
+	g = (unsigned char)(255 * (n * (n < 0.6 && n > 0.3)));
+	b = (unsigned char)(255 * (n * (n < 0.9 && n > 0.6)));
+	return ((r << 16) | (g << 8) | b);
 }

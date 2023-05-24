@@ -12,43 +12,33 @@
 #include <fract_ol.h>
 #include <math.h>
 
-int	set_rgb(double n)
-{
-	unsigned char	r;
-	unsigned char	g;
-	unsigned char	b;
-
-	r = (unsigned char)(110 * n);
-	g = (unsigned char)(200 * n);
-	b = (unsigned char)(255 * n);
-	return ((r << 16) | (g << 8) | b);
-}
-
-int	smooth(int i, t_fractal *f)
+int	smooth(int i, t_fractal *f, int (*t_set_rgb)(double n))
 {
 	double	n;
 
-	n = log(log(2.0) / log(f->z.r * f->z.r + f->z.i * f->z.i)) / log(2);
+	n = log(log(2) / log(f->z.r * f->z.r + f->z.i * f->z.i)) / log(2);
 	n = i + 1 - n;
-	return (set_rgb(n / f->imax));
+	return (t_set_rgb(n / f->imax));
 }
 
 int	get_colors(int i, int c, t_fractal *f)
 {
 	if (c == 0)
-		return (def(i));
+		return (smooth(i, f, &gris));
 	else if (c == 1)
-		return (linear(i));
+		return (smooth(i, f, &red));
 	else if (c == 2)
-		return (flame(i));
+		return (smooth(i, f, &green));
 	else if (c == 3)
-		return (smooth(i, f));
+		return (smooth(i, f, &blue));
+	else if (c == 4)
+		return (smooth(i, f, &lsd));
 	return (0);
 }
 
 void	update_colors(t_ref *ref)
 {
-	if (ref->f->cop == 3)
+	if (ref->f->cop == 4)
 		ref->f->cop = 0;
 	else
 		ref->f->cop++;
