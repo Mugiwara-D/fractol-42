@@ -29,13 +29,13 @@ void	key_move(int key, t_ref *ref)
 	w = (ref->f->base.xmax - ref->f->base.xmin) * ref->f->zoom.mz;
 	h = (ref->f->base.ymax - ref->f->base.ymin) * ref->f->zoom.mz;
 	if (key == K_UP)
-		ref->f->zoom.zy -= h * 0.05;
-	if (key == K_DOWN)
 		ref->f->zoom.zy += h * 0.05;
+	if (key == K_DOWN)
+		ref->f->zoom.zy -= h * 0.05;
 	if (key == K_LEFT)
-		ref->f->zoom.zx -= w * 0.05;
-	if (key == K_RIGHT)
 		ref->f->zoom.zx += w * 0.05;
+	if (key == K_RIGHT)
+		ref->f->zoom.zx -= w * 0.05;
 	ref->m->img = del_img(ref);
 	ft_bzero(&ref->m->img, sizeof(t_img));
 	init_img(ref->m);

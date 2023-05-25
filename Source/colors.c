@@ -47,3 +47,10 @@ void	update_colors(t_ref *ref)
 	init_img(ref->m);
 	render_img(ref->f, ref->p, ref->m);
 }
+/*branchless get*
+ *
+ * return ((smooth(i, f, &gris) * (c == 0)) + (smooth(i, f, &red) * (c == 1)) +
+ * (smooth(i, f, &green) * (c == 2)) + (smooth(i, f, &blue) * (c == 3)) +
+ * (smooth(i, f, &lsd) * (c == 4)));
+*/
+

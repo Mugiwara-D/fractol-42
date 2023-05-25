@@ -33,10 +33,7 @@ void	draw(t_img *frame, t_pxl *p, t_fractal *f,
 		while (p->x < LF)
 		{
 			o = t_comp(p, f);
-			if (o == f->imax)
-				p->color = 0x00000000;
-			else
-				p->color = t_colors(o, f->cop, f);
+			p->color = (t_colors(o, f->cop, f) * !(o == f->imax));
 			my_pixel_put(frame, p->x, p->y, p->color);
 			p->x++;
 		}
