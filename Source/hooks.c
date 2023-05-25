@@ -6,10 +6,32 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 14:04:54 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/19 16:45:06 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/05/25 15:02:37 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <fract_ol.h>
+
+void	update_julia(t_ref *ref, int keycode)
+{
+	if (keycode == K_PLUS)
+	{
+		ref->m->img = del_img(ref);
+		ref->f->c = (t_complex){.r = (ref->f->c.r + 0.1),
+			.i = (ref->f->c.i + 0.1)};
+		ft_bzero(&ref->m->img, sizeof(t_img));
+		init_img(ref->m);
+		render_img(ref->f, ref->p, ref->m);
+	}
+	else if (keycode == K_MINUS)
+	{
+		ref->m->img = del_img(ref);
+		ref->f->c = (t_complex){.r = (ref->f->c.r - 0.1),
+			.i = (ref->f->c.i - 0.1)};
+		ft_bzero(&ref->m->img, sizeof(t_img));
+		init_img(ref->m);
+		render_img(ref->f, ref->p, ref->m);
+	}
+}
 
 int	key_hook(int keycode, t_ref *ref)
 {
@@ -17,7 +39,12 @@ int	key_hook(int keycode, t_ref *ref)
 		end_prog(ref);
 	else if (keycode == K_C)
 		update_colors(ref);
-	key_move(keycode, ref);
+	else if (keycode == K_UP || keycode == K_DOWN
+		|| keycode == K_LEFT || keycode == K_RIGHT)
+		key_move(keycode, ref);
+	else if ((keycode == K_PLUS || keycode == K_MINUS)
+		&& !s_cmp(ref->f->name, "julia"))
+		update_julia(ref, keycode);
 	return (0);
 }
 
@@ -62,8 +89,3 @@ int	mos_hook(int btn, int x, int y, t_ref *ref)
 	}
 	return (0);
 }
-
-/*int	mos_mov(int x, int y, t_ref *ref)
-{
-
-}*/
