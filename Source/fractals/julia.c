@@ -31,6 +31,8 @@ void	init_julia(t_fractal *f, char *arg)
 		f->c = (t_complex){.r = -0.835, .i = -0.232};
 	else if (!s_cmp(arg, "5"))
 		f->c = (t_complex){.r = -1.476, .i = 0};
+	else
+		f->c = (t_complex){.r = 0.285, .i = 0.01};
 }
 
 int	julia(t_pxl *p, t_fractal *f)
