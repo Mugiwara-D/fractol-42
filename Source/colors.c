@@ -12,13 +12,13 @@
 #include <fract_ol.h>
 #include <math.h>
 
-int	smooth(int i, t_fractal *f, int (*t_set_rgb)(double n))
+int	smooth(int i, t_fractal *f, int (*t_set_rgb)(int i, double n))
 {
 	double	n;
 
 	n = log(log(2) / log(f->z.r * f->z.r + f->z.i * f->z.i)) / log(2);
 	n = i + 1 - n;
-	return (t_set_rgb(n / f->imax));
+	return (t_set_rgb(i, (n / f->imax)));
 }
 
 int	get_colors(int i, int c, t_fractal *f)

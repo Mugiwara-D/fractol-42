@@ -114,10 +114,10 @@ void		update_colors(t_ref *ref);
 double		dabs(double d);
 void		init_bns(t_fractal *f);
 int			burning_ship(t_pxl *p, t_fractal *f);
-int			red(double n);
-int			green(double n);
-int			blue(double n);
-int			gris(double n);
-int			lsd(double n);
+int			red(int i, double n);
+int			green(int i, double n);
+int			blue(int i, double n);
+int			gris(int i, double n);
+int			lsd(int i, double n);
 
 #endif
