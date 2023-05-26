@@ -48,10 +48,22 @@ int	key_hook(int keycode, t_ref *ref)
 	return (0);
 }
 
+void	julia_mos(int x, int y, t_ref *ref)
+{
+		ref->m->img = del_img(ref);
+		ref->f->c = (t_complex){.r = (((double)x / LF) * (ref->f->base.xmax - ref->f->base.xmin)
+				* ref->f->zoom.mz + ref->f->base.xmin + ref->f->zoom.zx),
+			.i = (((double)y / HF) * (ref->f->base.ymax - ref->f->base.ymin)
+				* ref->f->zoom.mz + ref->f->base.ymin + ref->f->zoom.zy)};
+		ft_bzero(&ref->m->img, sizeof(t_img));
+		init_img(ref->m);
+		render_img(ref->f, ref->p, ref->m);
+}
+
 void	key_move(int key, t_ref *ref)
 {
-	float	w;
-	float	h;
+	double	w;
+	double	h;
 
 	w = (ref->f->base.xmax - ref->f->base.xmin) * ref->f->zoom.mz;
 	h = (ref->f->base.ymax - ref->f->base.ymin) * ref->f->zoom.mz;
@@ -87,5 +99,7 @@ int	mos_hook(int btn, int x, int y, t_ref *ref)
 		init_img(ref->m);
 		render_img(ref->f, ref->p, ref->m);
 	}
+	else if (btn == 1 && !s_cmp(ref->f->name, "julia"))
+			julia_mos(x, y, ref);
 	return (0);
 }
