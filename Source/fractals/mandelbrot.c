@@ -25,7 +25,7 @@ t_fractal	*init_mandelbrot(t_fractal *f)
 
 int	mandelbrot(t_pxl *p, t_fractal	*f)
 {
-	float	tmp;
+	double	tmp;
 	int		i;
 
 	f->z.r = 0;

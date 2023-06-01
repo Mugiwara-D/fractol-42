@@ -100,6 +100,11 @@ int	mos_hook(int btn, int x, int y, t_ref *ref)
 		render_img(ref->f, ref->p, ref->m);
 	}
 	else if (btn == 1 && !s_cmp(ref->f->name, "julia"))
-			julia_mos(x, y, ref);
+	{
+		/*ref.mouse.x = x;
+		ref.mouse.y = y;
+		ref.mouse.uop = 1;*/
+		julia_mos(x, y, ref);;
+	}
 	return (0);
 }

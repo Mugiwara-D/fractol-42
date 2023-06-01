@@ -77,6 +77,13 @@ typedef struct fractal_data
 	int			cop;
 }	t_fractal;
 
+typedef struct s_mouse
+{
+	int	x;
+	int	y;
+	int8_t	uop;
+}	t_mouse;
+
 typedef struct s_references
 {
 	t_mlx		*m;
