@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 14:04:54 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/25 15:02:37 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/06/01 13:44:32 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <fract_ol.h>
@@ -50,14 +50,15 @@ int	key_hook(int keycode, t_ref *ref)
 
 void	julia_mos(int x, int y, t_ref *ref)
 {
-		ref->m->img = del_img(ref);
-		ref->f->c = (t_complex){.r = (((double)x / LF) * (ref->f->base.xmax - ref->f->base.xmin)
-				* ref->f->zoom.mz + ref->f->base.xmin + ref->f->zoom.zx),
-			.i = (((double)y / HF) * (ref->f->base.ymax - ref->f->base.ymin)
-				* ref->f->zoom.mz + ref->f->base.ymin + ref->f->zoom.zy)};
-		ft_bzero(&ref->m->img, sizeof(t_img));
-		init_img(ref->m);
-		render_img(ref->f, ref->p, ref->m);
+	ref->m->img = del_img(ref);
+	ref->f->c = (t_complex)
+	{.r = (((double)x / LF) * (ref->f->base.xmax - ref->f->base.xmin)
+			* ref->f->zoom.mz + ref->f->base.xmin + ref->f->zoom.zx),
+		.i = (((double)y / HF) * (ref->f->base.ymax - ref->f->base.ymin)
+			* ref->f->zoom.mz + ref->f->base.ymin + ref->f->zoom.zy)};
+	ft_bzero(&ref->m->img, sizeof(t_img));
+	init_img(ref->m);
+	render_img(ref->f, ref->p, ref->m);
 }
 
 void	key_move(int key, t_ref *ref)
@@ -100,11 +101,6 @@ int	mos_hook(int btn, int x, int y, t_ref *ref)
 		render_img(ref->f, ref->p, ref->m);
 	}
 	else if (btn == 1 && !s_cmp(ref->f->name, "julia"))
-	{
-		/*ref.mouse.x = x;
-		ref.mouse.y = y;
-		ref.mouse.uop = 1;*/
-		julia_mos(x, y, ref);;
-	}
+		julia_mos(x, y, ref);
 	return (0);
 }

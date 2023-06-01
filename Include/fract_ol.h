@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:24:50 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/24 15:59:03 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/06/01 13:47:35 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ typedef struct fractal_data
 
 typedef struct s_mouse
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
 	int8_t	uop;
 }	t_mouse;
 

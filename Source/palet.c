@@ -6,7 +6,7 @@
 /*   By: maderuel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 14:16:43 by maderuel          #+#    #+#             */
-/*   Updated: 2023/05/25 14:58:50 by maderuel         ###   ########.fr       */
+/*   Updated: 2023/06/01 13:49:07 by maderuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <fract_ol.h>
@@ -45,7 +45,7 @@ int	blue(int i, double n)
 	unsigned char	b;
 
 	(void) i;
-	r = (unsigned char)((90 / n) * n);
+	r = (unsigned char)((50 / n) * n);
 	g = (unsigned char)((10 / n) * n);
 	b = (unsigned char)(255 * n);
 	return ((r << 16) | (g << 8) | b);
@@ -62,7 +62,6 @@ int	gris(int i, double n)
 	g = (unsigned char)(255 * n);
 	b = (unsigned char)(255 * n);
 	return ((r << 16) | (g << 8) | b);
-
 }
 
 int	lsd(int i, double n)
